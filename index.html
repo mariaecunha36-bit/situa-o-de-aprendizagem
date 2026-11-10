@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidade em Ação</title>
+    <link rel="stylesheet" href="resources/css/style.css">
+    <script src="resources/script/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Comunidade em Ação</h1>
+        <p>Sistema de gestão comunitária</p>
+    </header>
+
+    <nav>
+        <button type="button" class="botao-menu ativo" onclick="mostrarTela('inicio', this)">Início</button>
+        <button type="button" class="botao-menu" onclick="mostrarTela('moradores', this)">Moradores</button>
+        <button type="button" class="botao-menu" onclick="mostrarTela('solicitacoes', this)">Solicitações</button>
+        <button type="button" class="botao-menu" onclick="mostrarTela('atividades', this)">Atividades</button>
+    </nav>
+
+    <main>
+        <section id="inicio" class="tela ativa">
+            <h2>Painel Inicial</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Moradores</h3>
+                    <p id="totalMoradores">0</p>
+                </div>
+                <div class="card">
+                    <h3>Solicitações</h3>
+                    <p id="totalSolicitacoes">0</p>
+                </div>
+                <div class="card">
+                    <h3>Atividades</h3>
+                    <p id="totalAtividades">0</p>
+                </div>
+            </div>
+            <p class="mensagem-inicial">Bem-vindo ao sistema de associação comunitária!</p>
+        </section>
+
+        <section id="moradores" class="tela">
+            <h2>Cadastro de Moradores</h2>
+            <form id="formMorador">
+                <input type="hidden" id="moradorId">
+                <label class="sr-only" for="nome">Nome completo</label>
+                <input type="text" id="nome" placeholder="Nome completo" required>
+                <label class="sr-only" for="telefone">Telefone</label>
+                <input type="text" id="telefone" placeholder="Telefone" required>
+                <label class="sr-only" for="email">E-mail</label>
+                <input type="email" id="email" placeholder="E-mail">
+                <label class="sr-only" for="endereco">Endereço</label>
+                <input type="text" id="endereco" placeholder="Endereço">
+                <button type="submit" id="botaoMorador">Salvar Morador</button>
+                <button type="button" id="cancelarMorador" class="cancelar" hidden>Cancelar edição</button>
+            </form>
+
+            <div class="titulo-lista">
+                <h3>Moradores cadastrados</h3>
+                <input type="text" id="pesquisa" placeholder="Pesquisar morador">
+            </div>
+            <div id="listaMoradores" class="lista-registros"></div>
+        </section>
+
+        <section id="solicitacoes" class="tela">
+            <h2>Solicitações dos Moradores</h2>
+            <form id="formSolicitacao">
+                <input type="hidden" id="solicitacaoId">
+                <label for="moradorSolicitacao">Morador</label>
+                <select id="moradorSolicitacao" required>
+                    <option value="">Selecione o morador</option>
+                </select>
+                <label for="descricao">Descrição da solicitação</label>
+                <input type="text" id="descricao" placeholder="Descreva a solicitação" required>
+                <label for="status">Situação</label>
+                <select id="status">
+                    <option value="Em análise">Em análise</option>
+                    <option value="Em andamento">Em andamento</option>
+                    <option value="Concluída">Concluída</option>
+                </select>
+                <button type="submit" id="botaoSolicitacao">Registrar Solicitação</button>
+                <button type="button" id="cancelarSolicitacao" class="cancelar" hidden>Cancelar edição</button>
+            </form>
+
+            <h3>Solicitações cadastradas</h3>
+            <div id="listaSolicitacoes" class="lista-registros"></div>
+        </section>
+
+        <section id="atividades" class="tela">
+            <h2>Atividades Comunitárias</h2>
+            <form id="formAtividade">
+                <input type="hidden" id="atividadeId">
+                <label for="nomeAtividade">Nome da atividade</label>
+                <input type="text" id="nomeAtividade" placeholder="Nome da atividade" required>
+                <label for="dataAtividade">Data</label>
+                <input type="date" id="dataAtividade" required>
+                <label for="localAtividade">Local</label>
+                <input type="text" id="localAtividade" placeholder="Local da atividade" required>
+                <button type="submit" id="botaoAtividade">Cadastrar Atividade</button>
+                <button type="button" id="cancelarAtividade" class="cancelar" hidden>Cancelar edição</button>
+            </form>
+
+            <h3>Atividades cadastradas</h3>
+            <div id="listaAtividades" class="lista-registros"></div>
+
+            <hr>
+
+            <h2>Participação dos Moradores</h2>
+            <form id="formParticipacao">
+                <input type="hidden" id="participacaoId">
+                <label for="moradorParticipacao">Morador</label>
+                <select id="moradorParticipacao" required>
+                    <option value="">Selecione o morador</option>
+                </select>
+                <label for="atividadeParticipacao">Atividade</label>
+                <select id="atividadeParticipacao" required>
+                    <option value="">Selecione a atividade</option>
+                </select>
+                <button type="submit" id="botaoParticipacao">Registrar Participação</button>
+                <button type="button" id="cancelarParticipacao" class="cancelar" hidden>Cancelar edição</button>
+            </form>
+
+            <h3>Participantes cadastrados</h3>
+            <div id="listaParticipacoes" class="lista-registros"></div>
+        </section>
+    </main>
+</body>
+</html>
